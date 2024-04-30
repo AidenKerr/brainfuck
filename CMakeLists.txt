@@ -3,4 +3,4 @@ project(brainfuck)
 
 set(CMAKE_CXX_STANDARD 23)
 
-add_executable(brainfuck main.cpp)
+add_executable(brainfuck src/main.cpp src/Brainfuck.cpp src/Brainfuck.h)
