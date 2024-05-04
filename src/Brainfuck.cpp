@@ -10,7 +10,6 @@ void Brainfuck::run() {
         char instruction = instructions[i_ptr];
         process_instruction(instruction);
     }
-    printf("done");
 }
 
 void Brainfuck::process_instruction(char instruction) {
@@ -62,4 +61,10 @@ void Brainfuck::process_instruction(char instruction) {
             break;
     }
     i_ptr++;
+}
+
+// only used for testing
+// TODO is there a better way to test memory?
+char* Brainfuck::getData() {
+    return data;
 }

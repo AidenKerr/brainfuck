@@ -16,8 +16,8 @@ public:
     char data[3000] = {0};
     int i_ptr = 0; // instruction pointer
     int d_ptr = 0; // data pointer
-
     void run();
+    char* getData(); // only used for testing
 private:
     void process_instruction(char instruction);
 };
