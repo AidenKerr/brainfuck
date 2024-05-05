@@ -1,7 +1,8 @@
 # Brainfuck Interpreter
 
 A brainfuck interpreter written in C++.
-It currently runs hard-coded programs, but eventually it will be able to run any file.
+
+To use, just run the program with a path to your file as the argument.
 
 
 | Instructions | Description                                               |
