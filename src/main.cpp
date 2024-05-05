@@ -1,14 +1,19 @@
+#include <fstream>
+#include <sstream>
 #include "Brainfuck.h"
 
-int main() {
-    std::string instructionsAdd = "++>+++++[<+>-]++++++++[<++++++>-]<.";
-    std::string instructionsHelloWorld = "++++++++[>++++[>++>+++>+++>+<<<<-]>+>+>->>+[<]<-]>>.>---.+++++++..+++.>>.<-.<.+++.------.--------.>>+.>++.";
-    std::string instructionsTest ="+[-[[]++]]++++++++[<++++++>-]<.";
-    std::string helloWorldTest = ">++++++++[-<+++++++++>]<.>>+>-[+]++>++>+++[>[->+++<<+++>]<<]>-----.>->+++..+++.>-.<<+[>[+>+]>>]<--------------.>>.+++.------.--------.>+.>+.";
-    std::string inputTest = ",.";
-    std::string rot13 = "-,+[-[>>++++[>++++++++<-]<+<-[>+>+>-[>>>]<[[>+<-]>>+>]<<<<<-]]>>>[-]+>--[-[<->+++[-]]]<[++++++++++++<[>-[>+>>]>[+[<+>-]>+>>]<<<<<-]>>[<+>-]>[-[-<<[-]>>]<<[<<->>-]>>]<<[<<+>>-]]<[-]<.[-]<-,+]";
+int main(int argc, char *argv[]) {
+    // default instructions if unspecified:
+    std::string instructions = ">++++++++[-<+++++++++>]<.>>+>-[+]++>++>+++[>[->+++<<+++>]<<]>-----.>->+++..+++.>-.<<+[>[+>+]>>]<--------------.>>.+++.------.--------.>+.>+.";
 
-    Brainfuck bf(helloWorldTest);
+    if (argc > 1) {
+        std::ifstream file_stream(argv[1]);
+        std::stringstream instruction_buffer;
+        instruction_buffer << file_stream.rdbuf();
+        instructions = instruction_buffer.str();
+    }
+
+    Brainfuck bf(instructions);
     bf.run();
 
     return 0;

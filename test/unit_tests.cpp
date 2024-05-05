@@ -35,9 +35,9 @@ TEST(BrainfuckTests, BasicLoop) {
 TEST(BrainfuckTests, ComplexLoop) {
     /*
      * Testing nested loops where an inner loop doesn't run on every loop
-     * On each iteration, increment d[3]
-     * Also, alternate between incrementing d[4] and d[5]
-     * This can actually be used to check if n is even or odd, too! :)
+     * On each iteration, increment d(3)
+     * Also, alternate between incrementing d(4) and d(5)
+     * This can actually be used to divide n by 2 and check if it is even or odd, too! :)
      *
      * In the commented code, n=5. The actual test uses a different n
      *
