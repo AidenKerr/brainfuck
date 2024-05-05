@@ -27,12 +27,10 @@ void Brainfuck::process_instruction(char instruction) {
             data[d_ptr]--;
             break;
         case '.':
-            printf("%c", data[d_ptr]);
+            std::cout << data[d_ptr];
             break;
         case ',':
-            char c;
-            std::cin >> c;
-            data[d_ptr] = c;
+            std::cin >> data[d_ptr];
             break;
         case '[':
             if (data[d_ptr] == 0) {
@@ -63,8 +61,6 @@ void Brainfuck::process_instruction(char instruction) {
     i_ptr++;
 }
 
-// only used for testing
-// TODO is there a better way to test memory?
-char* Brainfuck::getData() {
-    return data;
+char Brainfuck::getData(int index) {
+    return data[index];
 }

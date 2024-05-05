@@ -9,17 +9,16 @@ TEST(BrainfuckTests, IncrementData) {
     std::string instructions = "+";
     Brainfuck bf(instructions);
     bf.run();
-    char* data = bf.getData();
-    EXPECT_EQ(*data, 0x1);
+    char data = bf.getData(0);
+    EXPECT_EQ(data, 0x1);
 }
 
 TEST(BrainfuckTests, IncrementPointer) {
     std::string instructions = ">+";
     Brainfuck bf(instructions);
     bf.run();
-    char* data = bf.getData();
-    EXPECT_EQ(*data, 0x0);
-    EXPECT_EQ(data[1], 0x1);
+    EXPECT_EQ(bf.getData(0), 0x0);
+    EXPECT_EQ(bf.getData(1), 0x1);
 }
 
 TEST(BrainfuckTests, BasicLoop) {
@@ -29,7 +28,6 @@ TEST(BrainfuckTests, BasicLoop) {
     std::string instructions = "++[>++<-]";
     Brainfuck bf(instructions);
     bf.run();
-    char* data = bf.getData();
-    EXPECT_EQ(*data, 0x0);
-    EXPECT_EQ(data[1], 0x4);
+    EXPECT_EQ(bf.getData(0), 0x0);
+    EXPECT_EQ(bf.getData(1), 0x4);
 }
