@@ -6,7 +6,7 @@
 #define BRAINFUCK_BRAINFUCK_H
 
 #include <string>
-#include <map>
+#include <unordered_map>
 
 class Brainfuck {
 public:
@@ -17,7 +17,7 @@ public:
     char getData(int index);
 private:
     std::string instructions;
-    std::map<int, int> jump_map;
+    std::unordered_map<int, int> jump_map;
     char data[3000] = {0};
     int i_ptr = 0; // instruction pointer
     int d_ptr = 0; // data pointer
